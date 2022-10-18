@@ -1,0 +1,15 @@
+Pour la création de la première image la commande pour build est la suivante :
+
+docker build -f Dockerfile.v1 . -t webservice1
+
+Et pour lancer l'image dans un container :
+
+docker run --name my-ws1 -e PING_LISTEN_PORT=6060 -p 50:6060 webservice1
+
+Pour la deuxième image voici la commande nécessaire :
+
+docker build -f Dockerfile.v1 . -t webservice1
+
+Et pour lancer l'image dans un container :
+
+docker run --name my-ws2 -e PING_LISTEN_PORT=6060 -p 60:6060 webservice2

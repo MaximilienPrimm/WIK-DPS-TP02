@@ -1,0 +1,8 @@
+FROM node:16.17-slim
+COPY ./node ./app
+WORKDIR /app
+RUN ["npm", "install"]
+RUN ["npx","tsc"]
+RUN ["useradd", "-r", "lauch"]
+USER lauch
+CMD node build/app.js

@@ -1,0 +1,11 @@
+FROM node:16.17-slim as builder
+COPY ./node ./app
+WORKDIR /app
+RUN npm install && npx tsc
+
+FROM node:16.17-slim
+COPY --from=builder ./app ./app
+WORKDIR /app
+RUN useradd -r lauch
+USER lauch
+CMD node build/app.js
